@@ -1,14 +1,25 @@
 import React from 'react';
 import {Button, Card, CardActions, CardContent, CardMedia, Grid, Typography} from "@mui/material";
+import {ProductType} from "../types/ProductType";
+import { useAppDispatch } from '../hooks/redux';
+import { setOrder } from '../store/orderSlice';
 
 interface Props {
+    id: number
     poster: string
     price: number
     name: string
     store: string
 }
 
-const ProductItem = ({poster,price, name, store }: Props) => {
+const ProductItem = ({id, poster,price, name, store}: Props) => {
+
+    const dispatch = useAppDispatch()
+
+    const addOrder = (order: ProductType) => {
+        dispatch(setOrder(order))
+    }
+
     return (
         <Grid item xs={12} md={4}>
             <Card
@@ -35,7 +46,15 @@ const ProductItem = ({poster,price, name, store }: Props) => {
                 <CardActions>
                     <Button
                         variant="text"
-
+                        onClick={() =>
+                            addOrder({
+                                id,
+                                name,
+                                nameShop: store,
+                                image: poster,
+                                price,
+                            })
+                        }
                     >
                         Add
                     </Button>

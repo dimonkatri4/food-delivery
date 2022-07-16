@@ -8,6 +8,7 @@ import {useDispatch} from "react-redux";
 import {setProducts, setStores} from '../store/productsSlice';
 import {Route, Routes, useNavigate} from "react-router-dom";
 import {products} from "../mocks/mockProducts";
+import Basket from "./Basket";
 
 function App() {
 
@@ -18,17 +19,20 @@ function App() {
         location.pathname === '/' && navigate('/products')
     })
 
-
     useEffect(() => {
         dispatch(setProducts(products))
         dispatch(setStores(products))
     }, [])
 
     const [isStoresOpen, setIsStoresOpen] = useState(false)
+    const [isCartOpen, setIsCartOpen] = useState(false)
 
     return (
         <>
-            <Header handleStores={() => setIsStoresOpen(true)}/>
+            <Header
+                handleStores={() => setIsStoresOpen(true)}
+                handleCart={() => setIsCartOpen(true)}
+            />
             <Stores storesOpen={isStoresOpen} closeStores={() => setIsStoresOpen(false)}/>
             <Container sx={{mt: '1rem'}}>
                 <Routes>
@@ -37,6 +41,10 @@ function App() {
                     </Route>
                 </Routes>
             </Container>
+            <Basket
+                cartOpen={isCartOpen}
+                closeCart={() => setIsCartOpen(false)}
+            />
         </>
     );
 }
