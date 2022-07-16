@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {AppBar, Badge, IconButton, Toolbar, Typography} from "@mui/material"
 import { ShoppingBasket } from "@mui/icons-material"
 import StoreIcon from '@mui/icons-material/Store'

@@ -3,7 +3,7 @@ import React from 'react'
 import style from './formsControl.module.scss'
 
 interface OtherProps {
-    label: string
+    label: string;
 }
 
 export function MyTextInput({ className, label, ...props }: FieldHookConfig<string> & OtherProps) {
