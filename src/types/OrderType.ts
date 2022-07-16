@@ -6,3 +6,10 @@ export interface OrderType {
     price: number
     quantity: number
 }
+
+export interface ClientType {
+    name: string
+    email: string
+    phone: string
+    address: string
+}

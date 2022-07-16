@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {AppBar, Badge, IconButton, Toolbar, Typography} from "@mui/material"
 import { ShoppingBasket } from "@mui/icons-material"
 import StoreIcon from '@mui/icons-material/Store'
@@ -19,6 +19,7 @@ function Header({handleStores, handleCart}: Props) {
     const quantityOrder = order.reduce((acc, item) => {
         return acc + item.quantity
     }, 0)
+
 
     return (
         <AppBar position="static">

@@ -56,7 +56,7 @@ const ProductItem = ({id, poster,price, name, store}: Props) => {
                             })
                         }
                     >
-                        Add
+                        Add to Cart
                     </Button>
                 </CardActions>
             </Card>

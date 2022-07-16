@@ -1,9 +1,11 @@
 import React from "react";
-import { Divider, Drawer, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
-import { ShoppingBasket } from "@mui/icons-material";
+import {Button, Divider, Drawer, List, ListItem, ListItemIcon, ListItemText, Typography} from "@mui/material";
+import {ShoppingBasket} from "@mui/icons-material";
 import BasketItem from "./BascketItem";
 import {useSelector} from "react-redux";
 import {getOrder} from "../store/selectors/orderSelectors";
+import {useNavigate} from "react-router-dom";
+import {calculateTotal} from "../helpers/totalAmount";
 
 interface Props {
     cartOpen: boolean
@@ -13,6 +15,14 @@ interface Props {
 const Basket = ({cartOpen, closeCart}: Props) => {
 
     const order = useSelector(getOrder)
+    const navigate = useNavigate()
+
+    const goToOrder = () => {
+        navigate('/order')
+        closeCart()
+    }
+
+    const totalAmount = calculateTotal(order)
 
     return (
         <Drawer
@@ -23,11 +33,11 @@ const Basket = ({cartOpen, closeCart}: Props) => {
             <List sx={{width: '400px'}}>
                 <ListItem>
                     <ListItemIcon>
-                        <ShoppingBasket />
+                        <ShoppingBasket/>
                     </ListItemIcon>
-                    <ListItemText primary="Basket" />
+                    <ListItemText primary="Basket"/>
                 </ListItem>
-                <Divider />
+                <Divider/>
 
                 {!order.length ? (
                     <ListItem>Shopping cart is empty!</ListItem>
@@ -36,19 +46,24 @@ const Basket = ({cartOpen, closeCart}: Props) => {
                         {order.map((item) => (
                             <BasketItem key={item.name} {...item} />
                         ))}
-                        <Divider />
+                        <Divider/>
                         <ListItem>
                             <Typography sx={{fontWeight: 700}}>
                                 Total:{' '}
-                                {order.reduce((acc, item) => {
-                                    return acc + item.price * item.quantity;
-                                }, 0)}{' '} UAH
+                                {totalAmount}{' '} UAH
                             </Typography>
                         </ListItem>
                     </>
                 )}
-
             </List>
+            <Button
+                variant='contained'
+                disabled={!order.length}
+                onClick={() => goToOrder()}
+                sx={{maxWidth: 300, alignSelf:'center'}}
+            >
+                See Cart
+            </Button>
         </Drawer>
     )
 }

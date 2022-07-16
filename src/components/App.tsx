@@ -9,6 +9,7 @@ import {setProducts, setStores} from '../store/productsSlice';
 import {Route, Routes, useNavigate} from "react-router-dom";
 import {products} from "../mocks/mockProducts";
 import Basket from "./Basket";
+import ShoppingCart from "./ShoppingCart";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
                     <Route path='/products' element={<ProductsList/>}>
                         <Route path=':store' element={<ProductsList/>}/>
                     </Route>
+                    <Route path='/order' element={<ShoppingCart/>} />
                 </Routes>
             </Container>
             <Basket

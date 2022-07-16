@@ -1,10 +1,20 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {ProductType} from "../types/ProductType";
-import {OrderType} from "../types/OrderType";
+import {ClientType, OrderType} from "../types/OrderType";
 
+interface ChangeOrderCount {
+    id: number
+    count: number
+}
 
 const initialState = {
-    order: [] as OrderType[]
+    order: [] as OrderType[],
+    client: {
+        name: '',
+        phone: '',
+        email: '',
+        address: ''
+    }
 }
 
 export const orderSlice = createSlice({
@@ -49,10 +59,21 @@ export const orderSlice = createSlice({
         },
         deleteOrder: (state, action: PayloadAction<number>) => {
             state.order = state.order.filter((item) => item.id !== action.payload)
+        },
+        changeOrderCount: (state, action: PayloadAction<ChangeOrderCount>) => {
+            state.order.map(item => {
+                if (item.id === action.payload.id) {
+                    item.quantity += action.payload.count
+                }
+                return item
+            })
+        },
+        setClient: (state, action: PayloadAction<ClientType>) => {
+            state.client = action.payload
         }
     }
 })
 
-export const {setOrder, deleteOrder} = orderSlice.actions
+export const {setOrder, deleteOrder, changeOrderCount, setClient} = orderSlice.actions
 
 export default orderSlice.reducer

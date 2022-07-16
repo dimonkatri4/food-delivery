@@ -1,0 +1,18 @@
+.formControl {
+    margin: 10px;
+    &.error input {
+        border: solid 1px #ff5756;
+    }
+    &.error span {
+        color: #ff5756;
+        font-size: 16px;
+    }
+    label {
+        margin:10px
+    }
+    .inputBlock {
+        display: flex;
+        flex-flow: column;
+    }
+}
+
