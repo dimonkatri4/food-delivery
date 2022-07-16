@@ -1,7 +1,7 @@
 # Food Delivery
 ## Додаток розроблений за допомогою фреймворку React, на TypeScript .
 
-## Ознайомитись з додатком онлайн можна за посиланням: [Currency-converter](https://famous-kheer-130fea.netlify.app/).
+## Ознайомитись з додатком онлайн можна за посиланням: [Food Delivery](https://famous-kheer-130fea.netlify.app/).
 
 Для локального запуску клонуйте репозиторій, виконавши наступну команду:
 
