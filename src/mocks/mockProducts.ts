@@ -2,28 +2,28 @@ export const products = [
     {
         id: 1,
         name: 'beef teriyaki',
-        nameShop: 'sushiwok',
+        nameShop: 'Sushiwok',
         image: 'https://cdn.yosushi.com/r/w-320/p-webp/YoSushi/files/0d/0dc48219-100c-480d-bbc4-184160447b81.637795880490000000.png',
         price: 100
     },
     {
         id: 2,
         name: 'california temaki',
-        nameShop: 'sushiwok',
+        nameShop: 'Sushiwok',
         image: 'https://cdn.yosushi.com/r/w-320/p-webp/YoSushi/files/f3/f3ed4154-137f-4a4f-b648-1a1bca99d4d0.637843252250000000.png',
         price: 200
     },
     {
         id: 3,
         name: 'cherry blossom dome',
-        nameShop: 'sushiwok',
+        nameShop: 'Sushiwok',
         image: 'https://cdn.yosushi.com/r/w-320/p-webp/YoSushi/files/0e/0e02a5dd-debb-4c2b-b498-f3feea0cc9ed.637914492890000000.png',
         price: 100
     },
     {
         id: 4,
         name: 'cherry dough-chi',
-        nameShop: 'sushiwok',
+        nameShop: 'Sushiwok',
         image: 'https://cdn.yosushi.com/r/w-320/p-webp/YoSushi/files/a8/a8e8ac9b-0bd3-425a-8793-1fc66ec7cf8d.637914492980000000.png',
         price: 150
     },
