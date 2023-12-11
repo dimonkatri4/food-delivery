@@ -17,7 +17,7 @@ export const products = [
         id: 3,
         name: 'cherry blossom dome',
         nameShop: 'Sushiwok',
-        image: 'https://cdn.yosushi.com/r/w-320/p-webp/YoSushi/files/0e/0e02a5dd-debb-4c2b-b498-f3feea0cc9ed.637914492890000000.png',
+        image: 'https://cdn.yosushi.com/r/w-320/p-webp/YoSushi/files/c5/c5bbc802-cb09-401b-a4b1-ff1465344636.638373318700000000.png',
         price: 100,
     },
     {
